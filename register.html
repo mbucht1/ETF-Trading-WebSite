@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <form action="#" method="POST"> 
+        <br>
+        <br>
+        <h1>Register</h1>
+        <br> 
+        <input type="text" name="firstname" placeholder="Firstname" value="{{firstname if firstname}}"/><br> 
+        <br> 
+        <input type="text" name="lastname" placeholder="Lastname" value="{{lastname if lastname}}"/><br> 
+        <br> 
+        <input type="text" name="username" placeholder="Username" value="{{username if username}}"/><br> 
+        <br> 
+        <input type="text" name="password" placeholder="Password" value="{{password if password}}"/><br> 
+        <br>
+        <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body> 
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <br>
+            <div class="alert alert-danger" role="alert">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+{% endblock %}
